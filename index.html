@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Hub Issues Tracker | Login</title>
+    <!-- Custom css -->
+    <link rel="stylesheet" href="./custom.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/favicon.png">
+
+    <!-- Icons -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <!-- Tailwind + Daisyui -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class=" h-screen bg-[#F8FAFC] ">
+    <div class="pt-[8em]">
+    <section class="h-auto w-[500px] bg-white rounded-md shadow-md mx-auto p-8">
+        <img class="mx-auto" src="./assets/github-logo.png">
+
+        <h1 class=" mt-2 text-center font-bold text-[24px]" >GitHub Issues Tracker</h1>
+        <p class="text-center text-[14px] text-neutral-500">Sign in to manage your issues</p>
+
+            <fieldset class="fieldset bg-base-100 border-base-100 rounded-box w-xs border p-4 mx-auto">
+  
+
+  <label class="label">Username</label>
+  <input id="inputUser" type="email" class="input w-[400px]" placeholder="Enter Username" />
+                <p class="text-primary font-bold">Default: admin</p>
+  <label class="label">Password</label>
+  <input id="inputPass" type="password" class="input input w-[400px]" placeholder="Password" />
+                 <p class="text-primary font-bold">Default: admin123</p>
+  <button id="login-btn" class="btn btn-primary mt-4">Login</button>
+</fieldset>
+<P class="text-center mb-3 text-neutral-500 ">OR</P>
+
+<P class="text-center mb-2 font-bold text-neutral-400 ">Demo Credentials:</P>
+
+<div class="h-[90px] w-[450px] pt-4 bg-[#F8FAFC]">
+
+
+    <h2  class="text-center text-neutral-400"><span class="font-bold">Username: </span>admin</h2>
+    <h2 class="text-center text-neutral-400"><span class="font-bold">Password: </span>admin123</h2>
+
+
+</div>
+
+
+
+    </section>
+
+
+
+
+    </div>
+
+<!-- Java Script -->
+    <script href="./script.js"></script>
+</body>
+</html>
