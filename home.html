@@ -19,7 +19,38 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
-    <h2>hello world</h2>
+<body class=" h-screen bg-[#F8FAFC] ">
+    <nav>
+        <div class="flex justify-around gap-[600px] navbar bg-base-100 shadow-sm">
+  <div class="flex gap-2">
+    <img src="./assets/git.png">
+    <h1 class="font-bold text-[24px]">GitHub Issues Tracker</h1>
+  </div>
+
+  <div class="flex gap-2 ">
+    <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+    <button class="btn btn-primary font-bold ">+ New Issue</button>
+  </div>
+  </div>
+    </nav>
+
+
+
+    <main class="max-w-[1110px] h-screen  mx-auto">
+        <div class="bg-white p-4 mt-15 rounded-md shadow-lg">
+            <button onclick="toggleStyle('allBtn')" id="allBtn" class="btn  pl-10 pr-10">All</button>
+            <button onclick="toggleStyle('openBtn')" id="openBtn" class="btn  pl-10 pr-10">Open</button>
+            <button onclick="toggleStyle('closedBtn')" id="closedBtn" class="btn  pl-10 pr-10">Closed</button>
+        </div>
+
+    </main>
+
+
+
+
+
+
+
+    <script src="./home.js"></script>
 </body>
 </html>
