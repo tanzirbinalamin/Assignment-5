@@ -1,132 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Git Hub Issues Tracker | Home</title>
-     <!-- Custom css -->
-    <link rel="stylesheet" href="./custom.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="./assets/favicon.png">
+<title>Git Hub Issues Tracker | Home</title>
 
-    <!-- Icons -->
+<!-- Custom css -->
+<link rel="stylesheet" href="./custom.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="./assets/favicon.png">
 
+<!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+crossorigin="anonymous"
+referrerpolicy="no-referrer"
+/>
 
-    <!-- Tailwind + Daisyui -->
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<!-- Tailwind + DaisyUI -->
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
 </head>
-<body class=" h-screen bg-[#F8FAFC] ">
-    <nav>
-        <div class="flex justify-around gap-[600px] navbar bg-base-100 shadow-sm">
-  <div class="flex gap-2">
-    <img src="./assets/git.png">
-    <h1 class="font-bold text-[24px]">GitHub Issues Tracker</h1>
-  </div>
 
-  <div class="flex gap-2 ">
-    <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
-    <button class="btn btn-primary font-bold ">+ New Issue</button>
-  </div>
-  </div>
-    </nav>
+<body class="h-screen bg-[#F8FAFC]">
+
+<!-- Navbar -->
+<nav>
+<div class="flex justify-around gap-[600px] navbar bg-base-100 shadow-sm">
+
+<div class="flex gap-2">
+<img src="./assets/git.png">
+<h1 class="font-bold text-[24px]">GitHub Issues Tracker</h1>
+</div>
+
+<div class="flex gap-2">
+<input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto"/>
+<button class="btn btn-primary font-bold">+ New Issue</button>
+</div>
+
+</div>
+</nav>
+
+
+<!-- Main -->
+<main class="max-w-[1110px] mx-auto">
+
+<!-- Tabs -->
+<div class="bg-white p-4 mt-10 rounded-md shadow-lg">
+
+<button onclick="toggleStyle('allBtn');filterIssues('all')" id="allBtn" class="btn btn-primary pl-10 pr-10">
+All <span id="allCount">0</span>
+</button>
+
+<button onclick="toggleStyle('openBtn');filterIssues('open')" id="openBtn" class="btn pl-10 pr-10">
+Open <span id="openCount">0</span>
+</button>
+
+<button onclick="toggleStyle('closedBtn');filterIssues('closed')" id="closedBtn" class="btn pl-10 pr-10">
+Closed <span id="closedCount">0</span>
+</button>
+
+</div>
 
 
 
-    <main class="max-w-[1110px] h-full  mx-auto">
-        <div class="bg-white p-4 mt-15 rounded-md shadow-lg">
-            <button onclick="toggleStyle('allBtn')" id="allBtn" class="btn  pl-10 pr-10">All</button>
-            <button onclick="toggleStyle('openBtn')" id="openBtn" class="btn  pl-10 pr-10">Open</button>
-            <button onclick="toggleStyle('closedBtn')" id="closedBtn" class="btn  pl-10 pr-10">Closed</button>
-        </div>
+<div class="bg-white p-4 mt-10 rounded-md shadow-lg flex justify-between">
 
-        <div class="bg-white p-4 mt-15 rounded-md shadow-lg  flex justify-between">
-           <div class="flex gap-2 items-center">
-            <div>
-
-                <img src="./assets/Aperture.png">
-            </div>
-            <div class="">
-                <h1 class="font-bold"><span id="count">0</span>Issues</h1>
-                <p>Track and manage your project issues</p>
-            </div>
-           </div>
-
-           <div class="flex items-center gap-2"> 
-            <div>
-
-                <img src="./assets/Ellipse 2 (1).png"> 
-            </div>
-                
-            <h1 class="font-bold">Open</h1> 
+<div class="flex gap-2 items-center">
 
 <div>
-
-    <img src="./assets/Ellipse 2.png"> 
+<img src="./assets/Aperture.png">
 </div>
-        
-        <h1 class="font-bold">Closed</h1>
-        </div>
-           </div>
 
-           <hr class="text-[gray]">
+<div>
+<h1 class="font-bold">
+<span id="count">0</span> Issues
+</h1>
+<p>Track and manage your project issues</p>
+</div>
+
+</div>
 
 
-           <section id="card-container" class="grid grid-cols-4">
-<!-- cards -->
-   
-           </section>
+<div class="flex items-center gap-2">
 
-           <!-- Modal -->
-            <button class="btn" onclick="my_modal_1.showModal()">open modal</button>
+<div>
+<img src="./assets/Ellipse 2 (1).png">
+</div>
+
+<h1 class="font-bold">Open</h1>
+
+<div>
+<img src="./assets/Ellipse 2.png">
+</div>
+
+<h1 class="font-bold">Closed</h1>
+
+</div>
+
+</div>
+
+
+<hr class="text-gray-300 mt-5">
+
+
+
+<section id="card-container" class="grid grid-cols-4 gap-4">
+
+
+</section>
+
+
+
 <dialog id="my_modal_1" class="modal">
-  <div class="modal-box">
-    <h3 class="text-lg font-bold">Fix broken image uploads!</h3>
 
-<div class="flex gap-2 items-center mb-3 mt-3">
-    <div class="p-1 rounded-[25px] bg-green-600 w-[80px] "><p class="text-white font-bold text-center">Opened</p></div>|<p>Opened by Fahim Ahmed</p>|<p>22/02/2026</p>
+<div class="modal-box">
 
+<h3 id="modal-title" class="text-lg font-bold"></h3>
 
+<p id="modal-description" class="py-4"></p>
+<p id="modal-description2" class="py-4"></p>
+
+<div class="modal-action">
+<form method="dialog">
+<button class="btn btn-primary">Close</button>
+</form>
+</div>
 
 </div>
 
-<div class="flex gap-2 mt-3">
-
-    <div class="p-1 rounded-[25px] bg-red-100 w-[80px] "><p class="text-red-600 text-center">BUG</p></div>
-    <div class="p-1 rounded-[25px] bg-yellow-100 w-[120px] "><p class="text-yellow-600 text-center">help wanted</p></div>
-</div>
-    <p class="py-4">The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.</p>
-
-<div class="h-[90px] w-[450px] pt-4 bg-[#F8FAFC] flex justify-around">
-    <div><h1>Assignee:</h1><p class="font-bold">Fahim Ahmed</p></div>
-    <div><h1>Priority:</h1><div class="p-1 rounded-[25px] bg-red-100 w-[80px] "><p class="text-red-600 text-center">HIGH</p></div></div>
-    
-</div>
-
-    <div class="modal-action">
-      <form method="dialog">
-        <!-- if there is a button in form, it will close the modal -->
-        <button class="btn btn-primary">Close</button>
-      </form>
-    </div>
-  </div>
 </dialog>
 
-
-           
-
-
-    </main>
+</main>
 
 
+<script src="./home.js"></script>
 
-
-
-
-
-    <script src="./home.js"></script>
 </body>
 </html>

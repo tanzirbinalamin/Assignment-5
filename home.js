@@ -1,6 +1,7 @@
 const allTab = document.getElementById("allBtn");
 const openTab = document.getElementById("openBtn");
 const closedTab = document.getElementById("closedBtn");
+let allIssues = [];
 
 
 
@@ -31,22 +32,30 @@ const loadIssues = () => {
     fetch(url)
         .then(res => res.json())
         .then(data => {
-            displayIssues(data.data);
+
+            allIssues = data.data;
+
+            updateCounts(allIssues);
+
+            displayIssues(allIssues);
+
         });
 }
 
 const container = document.getElementById("card-container")
 
 const displayIssues = (issues) => {
+    container.innerHTML = "";
+
+
     issues.forEach(issue => {
 
-
-        // console.log(issue);
-
-
         const div = document.createElement("div");
-          div.innerHTML = `
-        <div class="shadow-sm rounded-md border-t-3 p-4 border-purple-600 mt-6 max-w-[256px] pt-4">
+
+        div.innerHTML = `
+        <div onclick="loadSingleIssue(${issue.id})"
+        class="shadow-sm rounded-md border-t-3 p-4 border-purple-600 mt-6 max-w-[256px] pt-4">
+
             <div class="flex justify-between items-center">
 
                 <div>
@@ -73,11 +82,68 @@ const displayIssues = (issues) => {
 
             <p class="mb-2 mt-2">#${issue.id} by ${issue.author}</p>
             <p class="mb-2">${issue.updatedAt}</p>
+
         </div>
-       
-          `;
-             container.appendChild(div);
+        `;
+
+        container.appendChild(div);
+
     });
+
 }
 
+const loadSingleIssue = (id) => {
+
+    const url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`;
+
+    fetch(url)
+        .then(res => res.json())
+        .then(data => {
+
+            const issue = data.data;
+
+            document.getElementById("modal-title").innerText = issue.title;
+            document.getElementById("modal-description").innerText = issue.description;
+            document.getElementById("modal-description2").innerText = issue.description;
+
+            my_modal_1.showModal();
+        });
+}
+const updateCounts = (issues) => {
+
+    const openIssues = issues.filter(issue => issue.status === "open");
+    const closedIssues = issues.filter(issue => issue.status === "closed");
+
+    document.getElementById("allCount").innerText = issues.length;
+    document.getElementById("openCount").innerText = openIssues.length;
+    document.getElementById("closedCount").innerText = closedIssues.length;
+
+    document.getElementById("count").innerText = issues.length;
+
+
+}
+
+function filterIssues(type){
+    let filtered = [];
+
+    if(type === "all"){
+        filtered = allIssues;
+    }
+
+    if(type === "open"){
+        filtered = allIssues.filter(issue => issue.status === "open");
+    }
+
+    if(type === "closed"){
+        filtered = allIssues.filter(issue => issue.status === "closed");
+    }
+
+    
+    displayIssues(filtered);
+
+
+    document.getElementById("count").innerText = filtered.length;
+}
+
+toggleStyle('allBtn');
 loadIssues();
