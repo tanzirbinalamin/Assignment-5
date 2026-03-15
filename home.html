@@ -84,15 +84,15 @@
                      <img src="./assets/Open-Status.png">
                     </div>
                     
-                    <div class="p-1 rounded-md bg-red-100 w-[80px] "><p class="text-red-600 text-center">HIGH</p></div>
+                    <div class="p-1 rounded-[25px] bg-red-100 w-[80px] "><p class="text-red-600 text-center">HIGH</p></div>
                 </div>
          <h1 class="font-bold mb-1 mt-1">Fix navigation menu on mobile devices</h1>
          
          <p class="mb-1">The navigation menu doesn't collapse properly on mobile devices...</p>
         <div class="flex gap-2 mb-3">
 
-            <div class="p-1 rounded-lg bg-red-100 w-[80px] "><p class="text-red-600 text-center">BUG</p></div>
-            <div class="p-1 rounded-lg bg-yellow-100 w-[120px] "><p class="text-yellow-600 text-center">help wanted</p></div>
+            <div class="p-1 rounded-[25px] bg-red-100 w-[80px] "><p class="text-red-600 text-center">BUG</p></div>
+            <div class="p-1 rounded-[25px] bg-yellow-100 w-[120px] "><p class="text-yellow-600 text-center">help wanted</p></div>
         </div>
             <hr class="text-gray-300">
                 <p class="mb-2 mt-2">#1 by john_doe</p>
@@ -101,6 +101,41 @@
 
             </div>
            </section>
+
+           <!-- Modal -->
+            <button class="btn" onclick="my_modal_1.showModal()">open modal</button>
+<dialog id="my_modal_1" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Fix broken image uploads!</h3>
+
+<div class="flex gap-2 items-center mb-3 mt-3">
+    <div class="p-1 rounded-[25px] bg-green-600 w-[80px] "><p class="text-white font-bold text-center">Opened</p></div>|<p>Opened by Fahim Ahmed</p>|<p>22/02/2026</p>
+
+
+
+</div>
+
+<div class="flex gap-2 mt-3">
+
+    <div class="p-1 rounded-[25px] bg-red-100 w-[80px] "><p class="text-red-600 text-center">BUG</p></div>
+    <div class="p-1 rounded-[25px] bg-yellow-100 w-[120px] "><p class="text-yellow-600 text-center">help wanted</p></div>
+</div>
+    <p class="py-4">The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.</p>
+
+<div class="h-[90px] w-[450px] pt-4 bg-[#F8FAFC] flex justify-around">
+    <div><h1>Assignee:</h1><p class="font-bold">Fahim Ahmed</p></div>
+    <div><h1>Priority:</h1><div class="p-1 rounded-[25px] bg-red-100 w-[80px] "><p class="text-red-600 text-center">HIGH</p></div></div>
+    
+</div>
+
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn btn-primary">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
 
 
            
