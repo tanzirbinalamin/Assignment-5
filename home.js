@@ -104,7 +104,11 @@ const loadSingleIssue = (id) => {
 
             document.getElementById("modal-title").innerText = issue.title;
             document.getElementById("modal-description").innerText = issue.description;
-            document.getElementById("modal-description2").innerText = issue.description;
+            document.getElementById("status").innerText = issue.status;
+            document.getElementById("name").innerText = issue.assignee;
+            document.getElementById("date").innerText = issue.updatedAt;
+
+          
 
             my_modal_1.showModal();
         });
