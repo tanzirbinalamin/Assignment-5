@@ -183,5 +183,12 @@ function filterIssues(type){
     document.getElementById("count").innerText = filtered.length;
 }
 
+document.getElementById("logout").addEventListener('click', function(){
+    window.location.assign("index.html");
+
+
+})
+
+
 toggleStyle('allBtn');
 loadIssues();
