@@ -107,12 +107,46 @@ const loadSingleIssue = (id) => {
             document.getElementById("status").innerText = issue.status;
             document.getElementById("name").innerText = issue.assignee;
             document.getElementById("date").innerText = issue.updatedAt;
+            document.getElementById("label").innerText = issue.labels;
+            document.getElementById("na_me").innerText = issue.assignee;
+
+            document.getElementById("priority").innerText = issue.priority;
 
           
 
             my_modal_1.showModal();
         });
 }
+
+const searchIssues = () => {
+    const searchText = document.getElementById("searchInput").value;
+
+    const url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchText}`;
+
+    fetch(url)
+        .then(res => res.json())
+        .then(data => {
+
+            const issues = data.data;
+
+            // search result show
+            displayIssues(issues);
+
+            // count update
+            updateCounts(issues);
+
+            // top count change
+            document.getElementById("count").innerText = issues.length;
+        });
+}
+
+document.getElementById("searchInput").addEventListener("keyup", (e) => {
+    if(e.key === "Enter"){
+        searchIssues();
+    }
+});
+
+
 const updateCounts = (issues) => {
 
     const openIssues = issues.filter(issue => issue.status === "open");
